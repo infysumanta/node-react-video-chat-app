@@ -8,8 +8,9 @@ import {
 } from "react-router-dom";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
-import RegisterPage from "./pages/RegisterPage/RegsiterPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import AlertNotification from "./components/AlertNotification";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <AlertNotification />
     </>
   );
 }
