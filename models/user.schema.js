@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const brcypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const config = require("../config");
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
@@ -19,7 +20,7 @@ userSchema.methods.getJWTToken = function () {
       userId: this._id,
       email: this.email,
     },
-    process.env.JWT_SECRET,
+    config.JWT_SECRET,
     {
       expiresIn: "30d",
     }

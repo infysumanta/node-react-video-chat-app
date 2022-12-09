@@ -2,15 +2,16 @@ require("dotenv").config();
 const server = require("./app.js");
 const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
+const config = require("./config/index.js");
 
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(config.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    server.listen(PORT, () => {
-      console.log(`Server is listening on ${PORT}`);
+    server.listen(config.PORT, () => {
+      console.log(`Server is listening on ${config.PORT}`);
     });
   })
   .catch((error) => {
