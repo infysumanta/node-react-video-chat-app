@@ -3,6 +3,7 @@ const { register, login } = require("../controllers/authController");
 const router = express.Router();
 
 const Joi = require("joi");
+const { verifyToken } = require("../middlewares/auth");
 const validator = require("express-joi-validation").createValidator();
 
 const registerSchema = Joi.object({
@@ -19,4 +20,8 @@ const loginSchema = Joi.object({
 router.route("/register").post(validator.body(registerSchema), register);
 router.route("/login").post(validator.body(loginSchema), login);
 
+// test route to verify the auth middleware
+router.route("/authtest").post(verifyToken, (req, res) => {
+  res.send("working");
+});
 module.exports = router;
