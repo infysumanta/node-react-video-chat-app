@@ -16,4 +16,5 @@ const removeConnectedUser = (socketId) => {
 
 module.exports = {
   addNewConnectedUser,
+  removeConnectedUser,
 };
