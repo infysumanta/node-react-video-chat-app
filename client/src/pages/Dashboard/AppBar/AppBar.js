@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import DropdownMenu from "./DropdownMenu";
 const MainContainer = styled("div")({
   position: "absolute",
   right: 0,
@@ -14,7 +15,11 @@ const MainContainer = styled("div")({
   padding: "0 15px",
 });
 const AppBar = () => {
-  return <MainContainer></MainContainer>;
+  return (
+    <MainContainer>
+      <DropdownMenu />
+    </MainContainer>
+  );
 };
 
 export default AppBar;
