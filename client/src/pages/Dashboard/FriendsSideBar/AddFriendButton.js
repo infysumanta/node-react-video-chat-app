@@ -16,7 +16,7 @@ const AddFriendButton = () => {
     setIsDialogOpen(true);
   };
   const handleCloseAddFriendDialog = () => {
-    setIsDialogOpen(true);
+    setIsDialogOpen(false);
   };
   return (
     <>
