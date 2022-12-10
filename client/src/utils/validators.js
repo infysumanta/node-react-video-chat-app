@@ -19,11 +19,6 @@ const usernameValid = (username) => {
 };
 
 export const validateRegisterForm = ({ email, username, password }) => {
-  console.log(
-    validateEmail(email),
-    usernameValid(username),
-    validatePassword(password)
-  );
   return (
     validateEmail(email) &&
     usernameValid(username) &&

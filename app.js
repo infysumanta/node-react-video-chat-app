@@ -2,6 +2,7 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
+const friendsInvitationRoutes = require("./routes/friendsInvitationRoutes");
 const socketServer = require("./socketServer");
 const path = require("path");
 
@@ -11,8 +12,15 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "client", "build")));
 // Register the Routes
 app.use("/api/auth", authRoutes);
-
-app.use("*", (_, res) => {
+app.use("/api/friend-invitation", friendsInvitationRoutes);
+app.get("/api/*", (_, res) => {
+  res.status(404).json({
+    success: false,
+    message: "Page Not found",
+    status: 404,
+  });
+});
+app.get("*", (_, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 

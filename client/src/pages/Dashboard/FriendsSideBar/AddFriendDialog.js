@@ -20,9 +20,12 @@ const AddFriendDialog = ({
   const [isFormValid, setIsFormValid] = useState(false);
 
   const handleSendInvitation = () => {
-    sendFriendInvition({
-      email: email,
-    });
+    sendFriendInvition(
+      {
+        email: email,
+      },
+      handleCloseDialog
+    );
   };
   const handleCloseDialog = () => {
     closeDialogHandler();

@@ -17,7 +17,6 @@ export const getActions = (dispatch) => {
 const sendFriendInvition = (data, closeDialogHandler) => {
   return async (dispatch) => {
     const response = await api.sendFriendInvition(data);
-
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
