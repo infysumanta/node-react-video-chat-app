@@ -1,6 +1,5 @@
 require("dotenv").config();
 const server = require("./app.js");
-const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
 const config = require("./config/index.js");
 
