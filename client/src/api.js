@@ -1,8 +1,9 @@
 import axios from "axios";
 import { logout } from "./utils/auth";
-
+const baseURL =
+  process.env.NODE_ENV === "development" ? "http://localhost:5000/api" : "/api";
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: baseURL,
   timeout: 1000,
 });
 
